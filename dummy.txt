@@ -1,0 +1,2 @@
+Approved chaincode definition for chaincode 'interairlining' on channel 'interairlining':
+sequence: 8, version: 1.4, init-required: false, package-id: interairlining_1.4:ff7858d1af02d653074468e9daf0319c1ab18289aa5b5d95d3f57286a0c85cf7, endorsement plugin: escc, validation plugin: vscc
