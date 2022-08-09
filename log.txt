@@ -1,11 +1,5 @@
 Installed chaincodes on peer:
-Package ID: interairlining_1.1:80b6c5812a6354f895312f12f5bdd111f81d54c411f5b34f04aeccee0413dc0a, Label: interairlining_1.1
-Package ID: interairlining_1.2:46f6e44744f6c06ea07d06575c74f269d49c85bee924e66d480740d983973b49, Label: interairlining_1.2
-Package ID: interairlining_1.2:733cf99ad6a9c37e43f068771e5e6f6dbe021566f2c24f8cd3aae9a352f27ba6, Label: interairlining_1.2
-Package ID: interairlining_1.2:b19cdf3e52de4ff2439f2dbe509b1fa11fccca3551d509d8402026fa2cf2f226, Label: interairlining_1.2
-Package ID: interairlining_1.2:8316bdef54bb12ebac91887d1ecd0127f1e75c93302def835676b671fc656e7b, Label: interairlining_1.2
-Package ID: interairlining_1.3:69fcdbc4a4327aad977efa0c4fb8a643034c4319372961369f4180a49e7609ee, Label: interairlining_1.3
-Package ID: interairlining_1.3:c135824fe641bd85df1566a07bd021ab4c089ac14ff6ceade8103a46d0fcd043, Label: interairlining_1.3
-Package ID: interairlining_1.0:483f9a32a20800b1f188a8fe9fd71ae62a1e8b7ddb3de43ce08ea8caf081a0a9, Label: interairlining_1.0
-Package ID: interairlining_1.4:ff7858d1af02d653074468e9daf0319c1ab18289aa5b5d95d3f57286a0c85cf7, Label: interairlining_1.4
-Package ID: interairlining_1.5:661a04e7341c1e2ab3e3056d121afb60619bbde41c764de400d8297ea50a67b6, Label: interairlining_1.5
+Package ID: auction_1.2:fa13bb776b09b43d862dd3454f23ca2b0c4b3a1961a0580437bcbbaf63e68d3f, Label: auction_1.2
+Package ID: auction_1.3:6c232cda683c03a09815b0b9c877275b20bf3344ef59871b62d4e9404ba06047, Label: auction_1.3
+Package ID: auction_1.0:0d440f7a0de5cfc12cc2ca57d4ef241350c708136fcc17e58b29ae4de32244f5, Label: auction_1.0
+Package ID: auction_1.1:66a0f6ca2bac3e8a53f34f93aa392644a684bfdc2bb08998fde00b59848cefa1, Label: auction_1.1

@@ -5,8 +5,8 @@ do
    esac
 done
 
-CHANNEL_NAME="interairlining" 
-CC_NAME="interairlining"
+CHANNEL_NAME="auction" 
+CC_NAME="auction"
 CC_PACKAGE_NAME="${CC_NAME}_v${CC_VERSION}.tar.gz"
 CC_SRC_PATH="./"
 CC_SRC_LANGUAGE="node"

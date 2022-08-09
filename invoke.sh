@@ -5,8 +5,8 @@ do
    esac
 done
 
-CHANNEL_NAME="interairlining" 
-CC_NAME="interairlining"
+CHANNEL_NAME="auction" 
+CC_NAME="auction"
 CC_PACKAGE_NAME="${CC_NAME}_v${CC_VERSION}.tar.gz"
 CC_SRC_PATH="./"
 CC_SRC_LANGUAGE="node"
@@ -45,10 +45,80 @@ switchOrg2() {
 }
 
 switchOrg1
+##############################
+# ######### Person
+##############################
+
+# peer chaincode invoke \
+#     -o ${ORDERER_URL} \
+#     --ordererTLSHostnameOverride ${ORDERER_HOST} \
+#     --tls \
+#     --cafile ${ORDERER_TLS_CA_FILE_ADDRESS} \
+#     -C ${CHANNEL_NAME} \
+#     -n ${CC_NAME} \
+#     --peerAddresses ${PEER0_ORG1_URL} \
+#     --tlsRootCertFiles ${PEER0_ORG1_TLS_CA_FILE_ADDRESS} \
+#     --peerAddresses ${PEER0_ORG2_URL} \
+#     --tlsRootCertFiles ${PEER0_ORG2_TLS_CA_FILE_ADDRESS} \
+#     -c '{"function":"createPerson","Args":["P_003" , "PRS_003" , "Sara Alavi", "09121111111" , "https://cdn.vuetifyjs.com/images/lists/3.jpg" , "sara" , "123"]}'
+
+peer chaincode invoke \
+    -o ${ORDERER_URL} \
+    --ordererTLSHostnameOverride ${ORDERER_HOST} \
+    --tls \
+    --cafile ${ORDERER_TLS_CA_FILE_ADDRESS} \
+    -C ${CHANNEL_NAME} \
+    -n ${CC_NAME} \
+    --peerAddresses ${PEER0_ORG1_URL} \
+    --tlsRootCertFiles ${PEER0_ORG1_TLS_CA_FILE_ADDRESS} \
+    --peerAddresses ${PEER0_ORG2_URL} \
+    --tlsRootCertFiles ${PEER0_ORG2_TLS_CA_FILE_ADDRESS} \
+    -c '{"function":"createPerson","Args":["P_3" , "P_3" , "Sara Alavi", "09121111111" , "https://cdn.vuetifyjs.com/images/lists/3.jpg" , "sara" , "123"]}'
+
+# peer chaincode invoke \
+#     -o ${ORDERER_URL} \
+#     --ordererTLSHostnameOverride ${ORDERER_HOST} \
+#     --tls \
+#     --cafile ${ORDERER_TLS_CA_FILE_ADDRESS} \
+#     -C ${CHANNEL_NAME} \
+#     -n ${CC_NAME} \
+#     --peerAddresses ${PEER0_ORG1_URL} \
+#     --tlsRootCertFiles ${PEER0_ORG1_TLS_CA_FILE_ADDRESS} \
+#     --peerAddresses ${PEER0_ORG2_URL} \
+#     --tlsRootCertFiles ${PEER0_ORG2_TLS_CA_FILE_ADDRESS} \
+#     -c '{"function":"getPerson","Args":["P_001"]}'
+
+# peer chaincode invoke \
+#   -o ${ORDERER_URL} \
+#   --ordererTLSHostnameOverride ${ORDERER_HOST} \
+#   --tls \
+#   --cafile ${ORDERER_TLS_CA_FILE_ADDRESS} \
+#   -C ${CHANNEL_NAME} \
+#   -n ${CC_NAME} \
+#   --peerAddresses ${PEER0_ORG1_URL} \
+#   --tlsRootCertFiles ${PEER0_ORG1_TLS_CA_FILE_ADDRESS} \
+#   --peerAddresses ${PEER0_ORG2_URL} \
+#   --tlsRootCertFiles ${PEER0_ORG2_TLS_CA_FILE_ADDRESS} \
+#   -c '{"function":"updatePersonPassword","Args":["P_002" , "321"]}'
+
+# peer chaincode invoke \
+#     -o ${ORDERER_URL} \
+#     --ordererTLSHostnameOverride ${ORDERER_HOST} \
+#     --tls \
+#     --cafile ${ORDERER_TLS_CA_FILE_ADDRESS} \
+#     -C ${CHANNEL_NAME} \
+#     -n ${CC_NAME} \
+#     --peerAddresses ${PEER0_ORG1_URL} \
+#     --tlsRootCertFiles ${PEER0_ORG1_TLS_CA_FILE_ADDRESS} \
+#     --peerAddresses ${PEER0_ORG2_URL} \
+#     --tlsRootCertFiles ${PEER0_ORG2_TLS_CA_FILE_ADDRESS} \
+#     -c '{"function":"deletePerson","Args":["P_003"]}'
+
 
 ##############################
-# ######## Baggage
+# ######## Auction
 ##############################
+
 # peer chaincode invoke \
 #     -o ${ORDERER_URL} \
 #     --ordererTLSHostnameOverride ${ORDERER_HOST} \
@@ -60,7 +130,59 @@ switchOrg1
 #     --tlsRootCertFiles ${PEER0_ORG1_TLS_CA_FILE_ADDRESS} \
 #     --peerAddresses ${PEER0_ORG2_URL} \
 #     --tlsRootCertFiles ${PEER0_ORG2_TLS_CA_FILE_ADDRESS} \
-#     -c '{"function":"createBaggage","Args":["bag_004", "user_001", "40", "140"]}'
+#     -c '{"function":"createAuction","Args":["A_001", "AUC_001", "Bike1", "Desc1", "Featurs1",  "1200" , "Image1" , "Image2" , "Image3" , "10" , "2022-10-05", "P_001"]}'
+
+# peer chaincode invoke \
+#     -o ${ORDERER_URL} \
+#     --ordererTLSHostnameOverride ${ORDERER_HOST} \
+#     --tls \
+#     --cafile ${ORDERER_TLS_CA_FILE_ADDRESS} \
+#     -C ${CHANNEL_NAME} \
+#     -n ${CC_NAME} \
+#     --peerAddresses ${PEER0_ORG1_URL} \
+#     --tlsRootCertFiles ${PEER0_ORG1_TLS_CA_FILE_ADDRESS} \
+#     --peerAddresses ${PEER0_ORG2_URL} \
+#     --tlsRootCertFiles ${PEER0_ORG2_TLS_CA_FILE_ADDRESS} \
+#     -c '{"function":"createAuction","Args":["A_002", "AUC_002", "Bike2", "Desc1", "Featurs1",  "1200" , "Image1" , "Image2" , "Image3" , "10" , "2022-10-05", "P_001"]}'
+
+# peer chaincode invoke \
+#     -o ${ORDERER_URL} \
+#     --ordererTLSHostnameOverride ${ORDERER_HOST} \
+#     --tls \
+#     --cafile ${ORDERER_TLS_CA_FILE_ADDRESS} \
+#     -C ${CHANNEL_NAME} \
+#     -n ${CC_NAME} \
+#     --peerAddresses ${PEER0_ORG1_URL} \
+#     --tlsRootCertFiles ${PEER0_ORG1_TLS_CA_FILE_ADDRESS} \
+#     --peerAddresses ${PEER0_ORG2_URL} \
+#     --tlsRootCertFiles ${PEER0_ORG2_TLS_CA_FILE_ADDRESS} \
+#     -c '{"function":"createAuction","Args":["A_003", "AUC_003", "Bike3", "Desc1", "Featurs1",  "1200" , "Image1" , "Image2" , "Image3" , "10" , "2022-10-05", "P_002"]}'
+
+# peer chaincode invoke \
+#     -o ${ORDERER_URL} \
+#     --ordererTLSHostnameOverride ${ORDERER_HOST} \
+#     --tls \
+#     --cafile ${ORDERER_TLS_CA_FILE_ADDRESS} \
+#     -C ${CHANNEL_NAME} \
+#     -n ${CC_NAME} \
+#     --peerAddresses ${PEER0_ORG1_URL} \
+#     --tlsRootCertFiles ${PEER0_ORG1_TLS_CA_FILE_ADDRESS} \
+#     --peerAddresses ${PEER0_ORG2_URL} \
+#     --tlsRootCertFiles ${PEER0_ORG2_TLS_CA_FILE_ADDRESS} \
+#     -c '{"function":"createAuction","Args":["A_004", "AUC_004", "Bike4", "Desc1", "Featurs1",  "1200" , "Image1" , "Image2" , "Image3" , "10" , "2022-10-05", "P_001"]}'
+
+# peer chaincode invoke \
+#     -o ${ORDERER_URL} \
+#     --ordererTLSHostnameOverride ${ORDERER_HOST} \
+#     --tls \
+#     --cafile ${ORDERER_TLS_CA_FILE_ADDRESS} \
+#     -C ${CHANNEL_NAME} \
+#     -n ${CC_NAME} \
+#     --peerAddresses ${PEER0_ORG1_URL} \
+#     --tlsRootCertFiles ${PEER0_ORG1_TLS_CA_FILE_ADDRESS} \
+#     --peerAddresses ${PEER0_ORG2_URL} \
+#     --tlsRootCertFiles ${PEER0_ORG2_TLS_CA_FILE_ADDRESS} \
+#     -c '{"function":"getAuction","Args":["A_001"]}'
 
 # peer chaincode invoke \
 #     --tls \
@@ -73,7 +195,8 @@ switchOrg1
 #     --tlsRootCertFiles ${PEER0_ORG2_TLS_CA_FILE_ADDRESS} \
 #     -C ${CHANNEL_NAME} \
 #     -n ${CC_NAME} \
-#     -c '{"function":"getBaggage","Args":["bag_002"]}'
+#     -c '{"function":"getAuctionsByStatus","Args":["-1"]}'
+
 
 # peer chaincode invoke \
 #     --tls \
@@ -86,8 +209,8 @@ switchOrg1
 #     --tlsRootCertFiles ${PEER0_ORG2_TLS_CA_FILE_ADDRESS} \
 #     -C ${CHANNEL_NAME} \
 #     -n ${CC_NAME} \
-#     -c '{"function":"getBaggageByQuery","Args":["120"]}'
-
+#     -c '{"function":"getAuctionsByPerson","Args":["P_002"]}'
+ 
 
 # peer chaincode invoke \
 #     --tls \
@@ -102,49 +225,6 @@ switchOrg1
 #     -n ${CC_NAME} \
 #     -c '{"function":"getBaggageByQueryWithPagination","Args":["100" , "2" , "g1AAAAA-eJzLYWBgYMpgSmHgKy5JLCrJTq2MT8lPzkzJBYqzJyWmxxsYGIKkOWDSyBJZAAp8EPc"]}'
 
-# peer chaincode invoke \
-#     -o ${ORDERER_URL} \
-#     --ordererTLSHostnameOverride ${ORDERER_HOST} \
-#     --tls \
-#     --cafile ${ORDERER_TLS_CA_FILE_ADDRESS} \
-#     -C ${CHANNEL_NAME} \
-#     -n ${CC_NAME} \
-#     --peerAddresses ${PEER0_ORG1_URL} \
-#     --tlsRootCertFiles ${PEER0_ORG1_TLS_CA_FILE_ADDRESS} \
-#     --peerAddresses ${PEER0_ORG2_URL} \
-#     --tlsRootCertFiles ${PEER0_ORG2_TLS_CA_FILE_ADDRESS} \
-#     -c '{"function":"updateBaggageOwner","Args":["bag_002", "user_001"]}'
-
-
-# peer chaincode invoke \
-#     -o ${ORDERER_URL} \
-#     --ordererTLSHostnameOverride ${ORDERER_HOST} \
-#     --tls \
-#     --cafile ${ORDERER_TLS_CA_FILE_ADDRESS} \
-#     -C ${CHANNEL_NAME} \
-#     -n ${CC_NAME} \
-#     --peerAddresses ${PEER0_ORG1_URL} \
-#     --tlsRootCertFiles ${PEER0_ORG1_TLS_CA_FILE_ADDRESS} \
-#     --peerAddresses ${PEER0_ORG2_URL} \
-#     --tlsRootCertFiles ${PEER0_ORG2_TLS_CA_FILE_ADDRESS} \
-#     -c '{"function":"deleteBaggage","Args":["bag_004"]}'
-
-##############################
-# ######## Airline
-##############################
-
-# peer chaincode invoke \
-#     -o ${ORDERER_URL} \
-#     --ordererTLSHostnameOverride ${ORDERER_HOST} \
-#     --tls \
-#     --cafile ${ORDERER_TLS_CA_FILE_ADDRESS} \
-#     -C ${CHANNEL_NAME} \
-#     -n ${CC_NAME} \
-#     --peerAddresses ${PEER0_ORG1_URL} \
-#     --tlsRootCertFiles ${PEER0_ORG1_TLS_CA_FILE_ADDRESS} \
-#     --peerAddresses ${PEER0_ORG2_URL} \
-#     --tlsRootCertFiles ${PEER0_ORG2_TLS_CA_FILE_ADDRESS} \
-#     -c '{"function":"createAirline","Args":["al_003" , "AL3" , "IRAN"]}'
 
 # peer chaincode invoke \
 # -o ${ORDERER_URL} \
@@ -157,7 +237,7 @@ switchOrg1
 # --tlsRootCertFiles ${PEER0_ORG1_TLS_CA_FILE_ADDRESS} \
 # --peerAddresses ${PEER0_ORG2_URL} \
 # --tlsRootCertFiles ${PEER0_ORG2_TLS_CA_FILE_ADDRESS} \
-# -c '{"function":"updateAirlineCountry","Args":["al_003" , "Turkey"]}'
+# -c '{"function":"updateAuctionStatus","Args":["A_001" , "status2"]}'
 
 # peer chaincode invoke \
 #     -o ${ORDERER_URL} \
@@ -170,23 +250,14 @@ switchOrg1
 #     --tlsRootCertFiles ${PEER0_ORG1_TLS_CA_FILE_ADDRESS} \
 #     --peerAddresses ${PEER0_ORG2_URL} \
 #     --tlsRootCertFiles ${PEER0_ORG2_TLS_CA_FILE_ADDRESS} \
-#     -c '{"function":"getAirline","Args":["al_001"]}'
+#     -c '{"function":"deleteAuction","Args":["A_1003"]}'
 
-# peer chaincode invoke \
-#     -o ${ORDERER_URL} \
-#     --ordererTLSHostnameOverride ${ORDERER_HOST} \
-#     --tls \
-#     --cafile ${ORDERER_TLS_CA_FILE_ADDRESS} \
-#     -C ${CHANNEL_NAME} \
-#     -n ${CC_NAME} \
-#     --peerAddresses ${PEER0_ORG1_URL} \
-#     --tlsRootCertFiles ${PEER0_ORG1_TLS_CA_FILE_ADDRESS} \
-#     --peerAddresses ${PEER0_ORG2_URL} \
-#     --tlsRootCertFiles ${PEER0_ORG2_TLS_CA_FILE_ADDRESS} \
-#     -c '{"function":"deleteAirline","Args":["al_001"]}'
+
+
+
 
 ##############################
-# ######### Airport
+# ######### Suggestion
 ##############################
 
 # peer chaincode invoke \
@@ -200,20 +271,7 @@ switchOrg1
 #     --tlsRootCertFiles ${PEER0_ORG1_TLS_CA_FILE_ADDRESS} \
 #     --peerAddresses ${PEER0_ORG2_URL} \
 #     --tlsRootCertFiles ${PEER0_ORG2_TLS_CA_FILE_ADDRESS} \
-#     -c '{"function":"createAirport","Args":["ap_003" , "AP3" , "IRAN-Tehran"]}'
-
-# peer chaincode invoke \
-# -o ${ORDERER_URL} \
-# --ordererTLSHostnameOverride ${ORDERER_HOST} \
-# --tls \
-# --cafile ${ORDERER_TLS_CA_FILE_ADDRESS} \
-# -C ${CHANNEL_NAME} \
-# -n ${CC_NAME} \
-# --peerAddresses ${PEER0_ORG1_URL} \
-# --tlsRootCertFiles ${PEER0_ORG1_TLS_CA_FILE_ADDRESS} \
-# --peerAddresses ${PEER0_ORG2_URL} \
-# --tlsRootCertFiles ${PEER0_ORG2_TLS_CA_FILE_ADDRESS} \
-# -c '{"function":"updateAirportLocation","Args":["ap_001" , "Tabriz"]}'
+#     -c '{"function":"createSuggestion","Args":["S_1002" , "P_003" , "A_1001" , "8400000" , "2022-08-06"]}'
 
 # peer chaincode invoke \
 #     -o ${ORDERER_URL} \
@@ -226,7 +284,7 @@ switchOrg1
 #     --tlsRootCertFiles ${PEER0_ORG1_TLS_CA_FILE_ADDRESS} \
 #     --peerAddresses ${PEER0_ORG2_URL} \
 #     --tlsRootCertFiles ${PEER0_ORG2_TLS_CA_FILE_ADDRESS} \
-#     -c '{"function":"getAirport","Args":["ap_001"]}'
+#     -c '{"function":"getSuggestion","Args":["S_1001"]}'
 
 # peer chaincode invoke \
 #     -o ${ORDERER_URL} \
@@ -239,24 +297,7 @@ switchOrg1
 #     --tlsRootCertFiles ${PEER0_ORG1_TLS_CA_FILE_ADDRESS} \
 #     --peerAddresses ${PEER0_ORG2_URL} \
 #     --tlsRootCertFiles ${PEER0_ORG2_TLS_CA_FILE_ADDRESS} \
-#     -c '{"function":"deleteAirport","Args":["ap_001"]}'
-
-##############################
-######## Order
-##############################
-# peer chaincode invoke \
-#     -o ${ORDERER_URL} \
-#     --ordererTLSHostnameOverride ${ORDERER_HOST} \
-#     --tls \
-#     --cafile ${ORDERER_TLS_CA_FILE_ADDRESS} \
-#     -C ${CHANNEL_NAME} \
-#     -n ${CC_NAME} \
-#     --peerAddresses ${PEER0_ORG1_URL} \
-#     --tlsRootCertFiles ${PEER0_ORG1_TLS_CA_FILE_ADDRESS} \
-#     --peerAddresses ${PEER0_ORG2_URL} \
-#     --tlsRootCertFiles ${PEER0_ORG2_TLS_CA_FILE_ADDRESS} \
-#     -c '{"function":"createOrder","Args":["ord_003" , "bag_002" , "ap_001" , "ap_003" ]}'
-
+#     -c '{"function":"getSuggestionsByPerson","Args":["P_002"]}'
 
 # peer chaincode invoke \
 #     -o ${ORDERER_URL} \
@@ -269,36 +310,21 @@ switchOrg1
 #     --tlsRootCertFiles ${PEER0_ORG1_TLS_CA_FILE_ADDRESS} \
 #     --peerAddresses ${PEER0_ORG2_URL} \
 #     --tlsRootCertFiles ${PEER0_ORG2_TLS_CA_FILE_ADDRESS} \
-#     -c '{"function":"getOrder","Args":["ord_001"]}'
+#     -c '{"function":"getSuggestionsByAuction","Args":["A_1001"]}'
+
 
 # peer chaincode invoke \
-#     -o ${ORDERER_URL} \
-#     --ordererTLSHostnameOverride ${ORDERER_HOST} \
-#     --tls \
-#     --cafile ${ORDERER_TLS_CA_FILE_ADDRESS} \
-#     -C ${CHANNEL_NAME} \
-#     -n ${CC_NAME} \
-#     --peerAddresses ${PEER0_ORG1_URL} \
-#     --tlsRootCertFiles ${PEER0_ORG1_TLS_CA_FILE_ADDRESS} \
-#     --peerAddresses ${PEER0_ORG2_URL} \
-#     --tlsRootCertFiles ${PEER0_ORG2_TLS_CA_FILE_ADDRESS} \
-#     -c '{"function":"deleteOrder","Args":["ord_001"]}'
-
-##############################
-######## Transport
-##############################
-# peer chaincode invoke \
-#     -o ${ORDERER_URL} \
-#     --ordererTLSHostnameOverride ${ORDERER_HOST} \
-#     --tls \
-#     --cafile ${ORDERER_TLS_CA_FILE_ADDRESS} \
-#     -C ${CHANNEL_NAME} \
-#     -n ${CC_NAME} \
-#     --peerAddresses ${PEER0_ORG1_URL} \
-#     --tlsRootCertFiles ${PEER0_ORG1_TLS_CA_FILE_ADDRESS} \
-#     --peerAddresses ${PEER0_ORG2_URL} \
-#     --tlsRootCertFiles ${PEER0_ORG2_TLS_CA_FILE_ADDRESS} \
-#     -c '{"function":"createTransport","Args":["trp_003" , "ord_003" , "ap_002" , "ap_003" , "al_002" , "FN_002" ]}'
+#   -o ${ORDERER_URL} \
+#   --ordererTLSHostnameOverride ${ORDERER_HOST} \
+#   --tls \
+#   --cafile ${ORDERER_TLS_CA_FILE_ADDRESS} \
+#   -C ${CHANNEL_NAME} \
+#   -n ${CC_NAME} \
+#   --peerAddresses ${PEER0_ORG1_URL} \
+#   --tlsRootCertFiles ${PEER0_ORG1_TLS_CA_FILE_ADDRESS} \
+#   --peerAddresses ${PEER0_ORG2_URL} \
+#   --tlsRootCertFiles ${PEER0_ORG2_TLS_CA_FILE_ADDRESS} \
+#   -c '{"function":"updateSuggestionStatus","Args":["S_001" , "status2"]}'
 
 
 # peer chaincode invoke \
@@ -312,17 +338,4 @@ switchOrg1
 #     --tlsRootCertFiles ${PEER0_ORG1_TLS_CA_FILE_ADDRESS} \
 #     --peerAddresses ${PEER0_ORG2_URL} \
 #     --tlsRootCertFiles ${PEER0_ORG2_TLS_CA_FILE_ADDRESS} \
-#     -c '{"function":"getTransport","Args":["trp_001"]}'
-
-# peer chaincode invoke \
-#     -o ${ORDERER_URL} \
-#     --ordererTLSHostnameOverride ${ORDERER_HOST} \
-#     --tls \
-#     --cafile ${ORDERER_TLS_CA_FILE_ADDRESS} \
-#     -C ${CHANNEL_NAME} \
-#     -n ${CC_NAME} \
-#     --peerAddresses ${PEER0_ORG1_URL} \
-#     --tlsRootCertFiles ${PEER0_ORG1_TLS_CA_FILE_ADDRESS} \
-#     --peerAddresses ${PEER0_ORG2_URL} \
-#     --tlsRootCertFiles ${PEER0_ORG2_TLS_CA_FILE_ADDRESS} \
-#     -c '{"function":"deleteTransport","Args":["trp_001"]}'
+#     -c '{"function":"deleteSuggestion","Args":["S_1002"]}'

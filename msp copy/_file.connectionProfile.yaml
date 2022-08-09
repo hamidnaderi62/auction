@@ -86,23 +86,23 @@ orderers:
     #
     # [Required]. This orderer's IP address
     #
-    url: grpcs://orderer0-orderer-org1.hamnad-auction.baas.greenrnd.com:443
+    url: grpcs://orderer0-orderer-org1-greendemo-inerairlining-baas.greenrnd.com:443
     tlsCACerts:
       pem: |-
         -----BEGIN CERTIFICATE-----
-        MIICUjCCAfmgAwIBAgIQC7yfyyI7qdHSrlodL6hLfzAKBggqhkjOPQQDAjB0MRIw
-        EAYDVQQGEwlXb3JsZFdpZGUxDzANBgNVBAgTBmdhbGF4eTEOMAwGA1UEBxMFZWFy
-        dGgxETAPBgNVBAoTCG9yZzEuY29tMREwDwYDVQQLEwhHcmVlblJuRDEXMBUGA1UE
-        AxMOdGxzY2Eub3JnMS5jb20wHhcNMjIwNzI2MDg1MDAwWhcNMzIwNzIzMDg1MDAw
-        WjB0MRIwEAYDVQQGEwlXb3JsZFdpZGUxDzANBgNVBAgTBmdhbGF4eTEOMAwGA1UE
-        BxMFZWFydGgxETAPBgNVBAoTCG9yZzEuY29tMREwDwYDVQQLEwhHcmVlblJuRDEX
-        MBUGA1UEAxMOdGxzY2Eub3JnMS5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNC
-        AAQC4v2MZLKnOvQBrm0zTs+a5crILUm4KMgmT5OF62lIOGdEGkBMANZ6i8il6JrF
-        i00UZtuz2ek5vnyxfr0GNneno20wazAOBgNVHQ8BAf8EBAMCAaYwHQYDVR0lBBYw
-        FAYIKwYBBQUHAwIGCCsGAQUFBwMBMA8GA1UdEwEB/wQFMAMBAf8wKQYDVR0OBCIE
-        IAzwJTBHVZBlmypCfWPR0FGaW0ntSE3dpD6Qw9E3/s5OMAoGCCqGSM49BAMCA0cA
-        MEQCIGAHjxhcWNGxYjNrAtvjUyy4h+fSyXWEqZIm0+eF6zk1AiAkPQxT8Az2ILNY
-        XC4kRpzgoD1x/qXVGAut684/qOtV+A==
+        MIICVDCCAfqgAwIBAgIRAPXJvcF6qgQ6YJcGfcvo27EwCgYIKoZIzj0EAwIwdDES
+        MBAGA1UEBhMJV29ybGRXaWRlMQ8wDQYDVQQIEwZnYWxheHkxDjAMBgNVBAcTBWVh
+        cnRoMREwDwYDVQQKEwhvcmcxLmNvbTERMA8GA1UECxMIR3JlZW5SbkQxFzAVBgNV
+        BAMTDnRsc2NhLm9yZzEuY29tMB4XDTIyMDIwNjExMDMwMFoXDTMyMDIwNDExMDMw
+        MFowdDESMBAGA1UEBhMJV29ybGRXaWRlMQ8wDQYDVQQIEwZnYWxheHkxDjAMBgNV
+        BAcTBWVhcnRoMREwDwYDVQQKEwhvcmcxLmNvbTERMA8GA1UECxMIR3JlZW5SbkQx
+        FzAVBgNVBAMTDnRsc2NhLm9yZzEuY29tMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcD
+        QgAE0JzrsG/9ikkKutbEmwvRxsm1SvrfaZRYOvnC0HBonL0EFhXWUOKKMMgFLXHo
+        GJecC5EWDyCvn93jZ8rWcbfoLKNtMGswDgYDVR0PAQH/BAQDAgGmMB0GA1UdJQQW
+        MBQGCCsGAQUFBwMCBggrBgEFBQcDATAPBgNVHRMBAf8EBTADAQH/MCkGA1UdDgQi
+        BCBk8xqYgZ1vV2KfCvaq1505ahVcMZWzbmgw8UdHWFC1bDAKBggqhkjOPQQDAgNI
+        ADBFAiEAo6wcxzpKMmy1aZDclWO41VzxhyXwc66RC/RJBKM6iykCIBhMQEskZ5FE
+        gKqi8xi7ZPrKYrlD4rL42dbCfdTm7iDH
         -----END CERTIFICATE-----
 
 
@@ -117,23 +117,23 @@ orderers:
     #
     # [Required]. This orderer's IP address
     #
-    url: grpcs://orderer0-orderer-org2.hamnad-auction.baas.greenrnd.com:443
+    url: grpcs://orderer0-orderer-org2-greendemo-inerairlining-baas.greenrnd.com:443
     tlsCACerts:
       pem: |-
         -----BEGIN CERTIFICATE-----
-        MIICUzCCAfqgAwIBAgIRAKNgRSLLwr4/FkBv+7+hr8swCgYIKoZIzj0EAwIwdDES
+        MIICVTCCAfqgAwIBAgIRAJjHkp42zgXVLax331OrOxEwCgYIKoZIzj0EAwIwdDES
         MBAGA1UEBhMJV29ybGRXaWRlMQ8wDQYDVQQIEwZnYWxheHkxDjAMBgNVBAcTBWVh
         cnRoMREwDwYDVQQKEwhvcmcyLmNvbTERMA8GA1UECxMIR3JlZW5SbkQxFzAVBgNV
-        BAMTDnRsc2NhLm9yZzIuY29tMB4XDTIyMDcyNjA4NTAwMFoXDTMyMDcyMzA4NTAw
+        BAMTDnRsc2NhLm9yZzIuY29tMB4XDTIyMDIwNjExMDcwMFoXDTMyMDIwNDExMDcw
         MFowdDESMBAGA1UEBhMJV29ybGRXaWRlMQ8wDQYDVQQIEwZnYWxheHkxDjAMBgNV
         BAcTBWVhcnRoMREwDwYDVQQKEwhvcmcyLmNvbTERMA8GA1UECxMIR3JlZW5SbkQx
         FzAVBgNVBAMTDnRsc2NhLm9yZzIuY29tMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcD
-        QgAEwWTG/tnanbDZzH1sOQvH9MQM0KZxPbZQvZDFo7avx7XAJHbVjCJq3WTnl8TC
-        eo3QraZgokpdvxx+icu7KE97uaNtMGswDgYDVR0PAQH/BAQDAgGmMB0GA1UdJQQW
+        QgAEg4JBK1yZdWxI2ATad71jDlhJYrH8tWw8434GR5ufxf7zMU8xPlfalIdgzeqH
+        RHUB6v6qxvDAm0uqbJi0xhIu8qNtMGswDgYDVR0PAQH/BAQDAgGmMB0GA1UdJQQW
         MBQGCCsGAQUFBwMCBggrBgEFBQcDATAPBgNVHRMBAf8EBTADAQH/MCkGA1UdDgQi
-        BCCb36Ex8gCHbup6BPeHp0SHmQZV1DUZjOfdwmvmruTN+DAKBggqhkjOPQQDAgNH
-        ADBEAiAtBrRe1OwsrzceO36N5T2Fz1ErcYiu3HnDchO+XvbtmQIgNck18Qc67WdE
-        244DRETQBMy6fCaIR1fLYsudeqUkNEc=
+        BCCN1uQ86avvNH1ij+Skx1uGm5dbLce5KHKgYne8uvs1NzAKBggqhkjOPQQDAgNJ
+        ADBGAiEAvqlOH3IDpbQm4bPOieI0y8IfjtdNwXj8utK2yHQBwOcCIQDexzjyPxxP
+        mA3UTfKHSbvD+agXYA9slx4C+hZZ0OzM/g==
         -----END CERTIFICATE-----
 
 
@@ -155,23 +155,23 @@ peers:
     #
     # [Required]. Peer's IP address
     #
-    url: grpcs://peer0-org1.hamnad-auction.baas.greenrnd.com:443
+    url: grpcs://peer0-org1-greendemo-inerairlining-baas.greenrnd.com:443
     tlsCACerts:
       pem: |-
         -----BEGIN CERTIFICATE-----
-        MIICUjCCAfmgAwIBAgIQC7yfyyI7qdHSrlodL6hLfzAKBggqhkjOPQQDAjB0MRIw
-        EAYDVQQGEwlXb3JsZFdpZGUxDzANBgNVBAgTBmdhbGF4eTEOMAwGA1UEBxMFZWFy
-        dGgxETAPBgNVBAoTCG9yZzEuY29tMREwDwYDVQQLEwhHcmVlblJuRDEXMBUGA1UE
-        AxMOdGxzY2Eub3JnMS5jb20wHhcNMjIwNzI2MDg1MDAwWhcNMzIwNzIzMDg1MDAw
-        WjB0MRIwEAYDVQQGEwlXb3JsZFdpZGUxDzANBgNVBAgTBmdhbGF4eTEOMAwGA1UE
-        BxMFZWFydGgxETAPBgNVBAoTCG9yZzEuY29tMREwDwYDVQQLEwhHcmVlblJuRDEX
-        MBUGA1UEAxMOdGxzY2Eub3JnMS5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNC
-        AAQC4v2MZLKnOvQBrm0zTs+a5crILUm4KMgmT5OF62lIOGdEGkBMANZ6i8il6JrF
-        i00UZtuz2ek5vnyxfr0GNneno20wazAOBgNVHQ8BAf8EBAMCAaYwHQYDVR0lBBYw
-        FAYIKwYBBQUHAwIGCCsGAQUFBwMBMA8GA1UdEwEB/wQFMAMBAf8wKQYDVR0OBCIE
-        IAzwJTBHVZBlmypCfWPR0FGaW0ntSE3dpD6Qw9E3/s5OMAoGCCqGSM49BAMCA0cA
-        MEQCIGAHjxhcWNGxYjNrAtvjUyy4h+fSyXWEqZIm0+eF6zk1AiAkPQxT8Az2ILNY
-        XC4kRpzgoD1x/qXVGAut684/qOtV+A==
+        MIICVDCCAfqgAwIBAgIRAPXJvcF6qgQ6YJcGfcvo27EwCgYIKoZIzj0EAwIwdDES
+        MBAGA1UEBhMJV29ybGRXaWRlMQ8wDQYDVQQIEwZnYWxheHkxDjAMBgNVBAcTBWVh
+        cnRoMREwDwYDVQQKEwhvcmcxLmNvbTERMA8GA1UECxMIR3JlZW5SbkQxFzAVBgNV
+        BAMTDnRsc2NhLm9yZzEuY29tMB4XDTIyMDIwNjExMDMwMFoXDTMyMDIwNDExMDMw
+        MFowdDESMBAGA1UEBhMJV29ybGRXaWRlMQ8wDQYDVQQIEwZnYWxheHkxDjAMBgNV
+        BAcTBWVhcnRoMREwDwYDVQQKEwhvcmcxLmNvbTERMA8GA1UECxMIR3JlZW5SbkQx
+        FzAVBgNVBAMTDnRsc2NhLm9yZzEuY29tMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcD
+        QgAE0JzrsG/9ikkKutbEmwvRxsm1SvrfaZRYOvnC0HBonL0EFhXWUOKKMMgFLXHo
+        GJecC5EWDyCvn93jZ8rWcbfoLKNtMGswDgYDVR0PAQH/BAQDAgGmMB0GA1UdJQQW
+        MBQGCCsGAQUFBwMCBggrBgEFBQcDATAPBgNVHRMBAf8EBTADAQH/MCkGA1UdDgQi
+        BCBk8xqYgZ1vV2KfCvaq1505ahVcMZWzbmgw8UdHWFC1bDAKBggqhkjOPQQDAgNI
+        ADBFAiEAo6wcxzpKMmy1aZDclWO41VzxhyXwc66RC/RJBKM6iykCIBhMQEskZ5FE
+        gKqi8xi7ZPrKYrlD4rL42dbCfdTm7iDH
         -----END CERTIFICATE-----
 
 
@@ -187,23 +187,23 @@ peers:
     #
     # [Required]. Peer's IP address
     #
-    url: grpcs://peer1-org1.hamnad-auction.baas.greenrnd.com:443
+    url: grpcs://peer1-org1-greendemo-inerairlining-baas.greenrnd.com:443
     tlsCACerts:
       pem: |-
         -----BEGIN CERTIFICATE-----
-        MIICUjCCAfmgAwIBAgIQC7yfyyI7qdHSrlodL6hLfzAKBggqhkjOPQQDAjB0MRIw
-        EAYDVQQGEwlXb3JsZFdpZGUxDzANBgNVBAgTBmdhbGF4eTEOMAwGA1UEBxMFZWFy
-        dGgxETAPBgNVBAoTCG9yZzEuY29tMREwDwYDVQQLEwhHcmVlblJuRDEXMBUGA1UE
-        AxMOdGxzY2Eub3JnMS5jb20wHhcNMjIwNzI2MDg1MDAwWhcNMzIwNzIzMDg1MDAw
-        WjB0MRIwEAYDVQQGEwlXb3JsZFdpZGUxDzANBgNVBAgTBmdhbGF4eTEOMAwGA1UE
-        BxMFZWFydGgxETAPBgNVBAoTCG9yZzEuY29tMREwDwYDVQQLEwhHcmVlblJuRDEX
-        MBUGA1UEAxMOdGxzY2Eub3JnMS5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNC
-        AAQC4v2MZLKnOvQBrm0zTs+a5crILUm4KMgmT5OF62lIOGdEGkBMANZ6i8il6JrF
-        i00UZtuz2ek5vnyxfr0GNneno20wazAOBgNVHQ8BAf8EBAMCAaYwHQYDVR0lBBYw
-        FAYIKwYBBQUHAwIGCCsGAQUFBwMBMA8GA1UdEwEB/wQFMAMBAf8wKQYDVR0OBCIE
-        IAzwJTBHVZBlmypCfWPR0FGaW0ntSE3dpD6Qw9E3/s5OMAoGCCqGSM49BAMCA0cA
-        MEQCIGAHjxhcWNGxYjNrAtvjUyy4h+fSyXWEqZIm0+eF6zk1AiAkPQxT8Az2ILNY
-        XC4kRpzgoD1x/qXVGAut684/qOtV+A==
+        MIICVDCCAfqgAwIBAgIRAPXJvcF6qgQ6YJcGfcvo27EwCgYIKoZIzj0EAwIwdDES
+        MBAGA1UEBhMJV29ybGRXaWRlMQ8wDQYDVQQIEwZnYWxheHkxDjAMBgNVBAcTBWVh
+        cnRoMREwDwYDVQQKEwhvcmcxLmNvbTERMA8GA1UECxMIR3JlZW5SbkQxFzAVBgNV
+        BAMTDnRsc2NhLm9yZzEuY29tMB4XDTIyMDIwNjExMDMwMFoXDTMyMDIwNDExMDMw
+        MFowdDESMBAGA1UEBhMJV29ybGRXaWRlMQ8wDQYDVQQIEwZnYWxheHkxDjAMBgNV
+        BAcTBWVhcnRoMREwDwYDVQQKEwhvcmcxLmNvbTERMA8GA1UECxMIR3JlZW5SbkQx
+        FzAVBgNVBAMTDnRsc2NhLm9yZzEuY29tMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcD
+        QgAE0JzrsG/9ikkKutbEmwvRxsm1SvrfaZRYOvnC0HBonL0EFhXWUOKKMMgFLXHo
+        GJecC5EWDyCvn93jZ8rWcbfoLKNtMGswDgYDVR0PAQH/BAQDAgGmMB0GA1UdJQQW
+        MBQGCCsGAQUFBwMCBggrBgEFBQcDATAPBgNVHRMBAf8EBTADAQH/MCkGA1UdDgQi
+        BCBk8xqYgZ1vV2KfCvaq1505ahVcMZWzbmgw8UdHWFC1bDAKBggqhkjOPQQDAgNI
+        ADBFAiEAo6wcxzpKMmy1aZDclWO41VzxhyXwc66RC/RJBKM6iykCIBhMQEskZ5FE
+        gKqi8xi7ZPrKYrlD4rL42dbCfdTm7iDH
         -----END CERTIFICATE-----
 
 
@@ -219,23 +219,23 @@ peers:
     #
     # [Required]. Peer's IP address
     #
-    url: grpcs://peer0-org2.hamnad-auction.baas.greenrnd.com:443
+    url: grpcs://peer0-org2-greendemo-inerairlining-baas.greenrnd.com:443
     tlsCACerts:
       pem: |-
         -----BEGIN CERTIFICATE-----
-        MIICUzCCAfqgAwIBAgIRAKNgRSLLwr4/FkBv+7+hr8swCgYIKoZIzj0EAwIwdDES
+        MIICVTCCAfqgAwIBAgIRAJjHkp42zgXVLax331OrOxEwCgYIKoZIzj0EAwIwdDES
         MBAGA1UEBhMJV29ybGRXaWRlMQ8wDQYDVQQIEwZnYWxheHkxDjAMBgNVBAcTBWVh
         cnRoMREwDwYDVQQKEwhvcmcyLmNvbTERMA8GA1UECxMIR3JlZW5SbkQxFzAVBgNV
-        BAMTDnRsc2NhLm9yZzIuY29tMB4XDTIyMDcyNjA4NTAwMFoXDTMyMDcyMzA4NTAw
+        BAMTDnRsc2NhLm9yZzIuY29tMB4XDTIyMDIwNjExMDcwMFoXDTMyMDIwNDExMDcw
         MFowdDESMBAGA1UEBhMJV29ybGRXaWRlMQ8wDQYDVQQIEwZnYWxheHkxDjAMBgNV
         BAcTBWVhcnRoMREwDwYDVQQKEwhvcmcyLmNvbTERMA8GA1UECxMIR3JlZW5SbkQx
         FzAVBgNVBAMTDnRsc2NhLm9yZzIuY29tMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcD
-        QgAEwWTG/tnanbDZzH1sOQvH9MQM0KZxPbZQvZDFo7avx7XAJHbVjCJq3WTnl8TC
-        eo3QraZgokpdvxx+icu7KE97uaNtMGswDgYDVR0PAQH/BAQDAgGmMB0GA1UdJQQW
+        QgAEg4JBK1yZdWxI2ATad71jDlhJYrH8tWw8434GR5ufxf7zMU8xPlfalIdgzeqH
+        RHUB6v6qxvDAm0uqbJi0xhIu8qNtMGswDgYDVR0PAQH/BAQDAgGmMB0GA1UdJQQW
         MBQGCCsGAQUFBwMCBggrBgEFBQcDATAPBgNVHRMBAf8EBTADAQH/MCkGA1UdDgQi
-        BCCb36Ex8gCHbup6BPeHp0SHmQZV1DUZjOfdwmvmruTN+DAKBggqhkjOPQQDAgNH
-        ADBEAiAtBrRe1OwsrzceO36N5T2Fz1ErcYiu3HnDchO+XvbtmQIgNck18Qc67WdE
-        244DRETQBMy6fCaIR1fLYsudeqUkNEc=
+        BCCN1uQ86avvNH1ij+Skx1uGm5dbLce5KHKgYne8uvs1NzAKBggqhkjOPQQDAgNJ
+        ADBGAiEAvqlOH3IDpbQm4bPOieI0y8IfjtdNwXj8utK2yHQBwOcCIQDexzjyPxxP
+        mA3UTfKHSbvD+agXYA9slx4C+hZZ0OzM/g==
         -----END CERTIFICATE-----
 
 
@@ -251,23 +251,23 @@ peers:
     #
     # [Required]. Peer's IP address
     #
-    url: grpcs://peer1-org2.hamnad-auction.baas.greenrnd.com:443
+    url: grpcs://peer1-org2-greendemo-inerairlining-baas.greenrnd.com:443
     tlsCACerts:
       pem: |-
         -----BEGIN CERTIFICATE-----
-        MIICUzCCAfqgAwIBAgIRAKNgRSLLwr4/FkBv+7+hr8swCgYIKoZIzj0EAwIwdDES
+        MIICVTCCAfqgAwIBAgIRAJjHkp42zgXVLax331OrOxEwCgYIKoZIzj0EAwIwdDES
         MBAGA1UEBhMJV29ybGRXaWRlMQ8wDQYDVQQIEwZnYWxheHkxDjAMBgNVBAcTBWVh
         cnRoMREwDwYDVQQKEwhvcmcyLmNvbTERMA8GA1UECxMIR3JlZW5SbkQxFzAVBgNV
-        BAMTDnRsc2NhLm9yZzIuY29tMB4XDTIyMDcyNjA4NTAwMFoXDTMyMDcyMzA4NTAw
+        BAMTDnRsc2NhLm9yZzIuY29tMB4XDTIyMDIwNjExMDcwMFoXDTMyMDIwNDExMDcw
         MFowdDESMBAGA1UEBhMJV29ybGRXaWRlMQ8wDQYDVQQIEwZnYWxheHkxDjAMBgNV
         BAcTBWVhcnRoMREwDwYDVQQKEwhvcmcyLmNvbTERMA8GA1UECxMIR3JlZW5SbkQx
         FzAVBgNVBAMTDnRsc2NhLm9yZzIuY29tMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcD
-        QgAEwWTG/tnanbDZzH1sOQvH9MQM0KZxPbZQvZDFo7avx7XAJHbVjCJq3WTnl8TC
-        eo3QraZgokpdvxx+icu7KE97uaNtMGswDgYDVR0PAQH/BAQDAgGmMB0GA1UdJQQW
+        QgAEg4JBK1yZdWxI2ATad71jDlhJYrH8tWw8434GR5ufxf7zMU8xPlfalIdgzeqH
+        RHUB6v6qxvDAm0uqbJi0xhIu8qNtMGswDgYDVR0PAQH/BAQDAgGmMB0GA1UdJQQW
         MBQGCCsGAQUFBwMCBggrBgEFBQcDATAPBgNVHRMBAf8EBTADAQH/MCkGA1UdDgQi
-        BCCb36Ex8gCHbup6BPeHp0SHmQZV1DUZjOfdwmvmruTN+DAKBggqhkjOPQQDAgNH
-        ADBEAiAtBrRe1OwsrzceO36N5T2Fz1ErcYiu3HnDchO+XvbtmQIgNck18Qc67WdE
-        244DRETQBMy6fCaIR1fLYsudeqUkNEc=
+        BCCN1uQ86avvNH1ij+Skx1uGm5dbLce5KHKgYne8uvs1NzAKBggqhkjOPQQDAgNJ
+        ADBGAiEAvqlOH3IDpbQm4bPOieI0y8IfjtdNwXj8utK2yHQBwOcCIQDexzjyPxxP
+        mA3UTfKHSbvD+agXYA9slx4C+hZZ0OzM/g==
         -----END CERTIFICATE-----
 
 
@@ -292,23 +292,23 @@ certificateAuthorities:
     #
     # [Required]. CA IP address
     #
-    url: https://ca-org1.hamnad-auction.baas.greenrnd.com:443
+    url: https://ca-org1-greendemo-inerairlining-baas.greenrnd.com:443
     tlsCACerts:
       pem: |-
         -----BEGIN CERTIFICATE-----
-        MIICTjCCAfSgAwIBAgIRAJ/iWZrn9kXAbqa5tDpOhcYwCgYIKoZIzj0EAwIwcTES
-        MBAGA1UEBhMJV29ybGRXaWRlMQ8wDQYDVQQIEwZnYWxheHkxDjAMBgNVBAcTBWVh
-        cnRoMREwDwYDVQQKEwhvcmcxLmNvbTERMA8GA1UECxMIR3JlZW5SbkQxFDASBgNV
-        BAMTC2NhLm9yZzEuY29tMB4XDTIyMDcyNjA4NTAwMFoXDTMyMDcyMzA4NTAwMFow
-        cTESMBAGA1UEBhMJV29ybGRXaWRlMQ8wDQYDVQQIEwZnYWxheHkxDjAMBgNVBAcT
-        BWVhcnRoMREwDwYDVQQKEwhvcmcxLmNvbTERMA8GA1UECxMIR3JlZW5SbkQxFDAS
-        BgNVBAMTC2NhLm9yZzEuY29tMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEvXk2
-        M5WCekaPUF+A3yanvAKj2Mta7VylA5FBhFVpYkTjtqrK/D7f+nnrMjgv2/xMmiKu
-        v0nkAotzco6xihm9pKNtMGswDgYDVR0PAQH/BAQDAgGmMB0GA1UdJQQWMBQGCCsG
-        AQUFBwMCBggrBgEFBQcDATAPBgNVHRMBAf8EBTADAQH/MCkGA1UdDgQiBCAzFCDM
-        rBFODJQ9pWiOaGXDWZGzIIYOkMNuUKMrH85QgzAKBggqhkjOPQQDAgNIADBFAiEA
-        hyzTD4pNgd2hW7D2WrHAhvCS1M33ARv8af1EohB1szsCIBa9i9GF8YP8yywf7+p+
-        MeaCYnI7SnKkDVKXvzTX1qKv
+        MIICTTCCAfOgAwIBAgIQUHEGFo92GxJT+la/zeYj6DAKBggqhkjOPQQDAjBxMRIw
+        EAYDVQQGEwlXb3JsZFdpZGUxDzANBgNVBAgTBmdhbGF4eTEOMAwGA1UEBxMFZWFy
+        dGgxETAPBgNVBAoTCG9yZzEuY29tMREwDwYDVQQLEwhHcmVlblJuRDEUMBIGA1UE
+        AxMLY2Eub3JnMS5jb20wHhcNMjIwMjA2MTEwMzAwWhcNMzIwMjA0MTEwMzAwWjBx
+        MRIwEAYDVQQGEwlXb3JsZFdpZGUxDzANBgNVBAgTBmdhbGF4eTEOMAwGA1UEBxMF
+        ZWFydGgxETAPBgNVBAoTCG9yZzEuY29tMREwDwYDVQQLEwhHcmVlblJuRDEUMBIG
+        A1UEAxMLY2Eub3JnMS5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAASMb8B/
+        cylO/PeQjWWL2DGVGUX+jGCLOJH0oOZNbMgbFZLSz5lje5wDd+RrLD09V4n7lAAn
+        CBZThhjttBCWs6Y6o20wazAOBgNVHQ8BAf8EBAMCAaYwHQYDVR0lBBYwFAYIKwYB
+        BQUHAwIGCCsGAQUFBwMBMA8GA1UdEwEB/wQFMAMBAf8wKQYDVR0OBCIEIPAgT8u2
+        zyWaDcX3i7RhJVWn73qUxMJFll+/YOHDhBmDMAoGCCqGSM49BAMCA0gAMEUCIQC5
+        RcsXjM6Gu9j+VOl96s7bQ6XwphVfeX3GS1P7dD/aqQIgEpmhYv797vFBUzbcym3/
+        tRptcDmiQWgD/jRmfOBUORo=
         -----END CERTIFICATE-----
 
 
@@ -332,23 +332,23 @@ certificateAuthorities:
     #
     # [Required]. CA IP address
     #
-    url: https://ca-org2.hamnad-auction.baas.greenrnd.com:443
+    url: https://ca-org2-greendemo-inerairlining-baas.greenrnd.com:443
     tlsCACerts:
       pem: |-
         -----BEGIN CERTIFICATE-----
-        MIICTjCCAfSgAwIBAgIRAIifKz61R+pzrnqJ5mjN03gwCgYIKoZIzj0EAwIwcTES
-        MBAGA1UEBhMJV29ybGRXaWRlMQ8wDQYDVQQIEwZnYWxheHkxDjAMBgNVBAcTBWVh
-        cnRoMREwDwYDVQQKEwhvcmcyLmNvbTERMA8GA1UECxMIR3JlZW5SbkQxFDASBgNV
-        BAMTC2NhLm9yZzIuY29tMB4XDTIyMDcyNjA4NTAwMFoXDTMyMDcyMzA4NTAwMFow
-        cTESMBAGA1UEBhMJV29ybGRXaWRlMQ8wDQYDVQQIEwZnYWxheHkxDjAMBgNVBAcT
-        BWVhcnRoMREwDwYDVQQKEwhvcmcyLmNvbTERMA8GA1UECxMIR3JlZW5SbkQxFDAS
-        BgNVBAMTC2NhLm9yZzIuY29tMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE5z6N
-        nvCrJlKER7gN8N35PWPPkzb1epKGlbiWYuuf7f3GjCUcriB03kuLcNG4ulSq2+Kr
-        nm8jydAETH1p7kgWZKNtMGswDgYDVR0PAQH/BAQDAgGmMB0GA1UdJQQWMBQGCCsG
-        AQUFBwMCBggrBgEFBQcDATAPBgNVHRMBAf8EBTADAQH/MCkGA1UdDgQiBCD+MXq4
-        V2uiKbpmOuSprw7zMqMGUarBtUKw82+8S7dOZjAKBggqhkjOPQQDAgNIADBFAiEA
-        31KJrRrHHLBG3+FkqUc91cn17I4xrrz01WVOtyFthd0CIFlxEFWVq3OgrqAi4FsV
-        gwEmCBNn4IyZ3rlu96CtctQ1
+        MIICTjCCAfOgAwIBAgIQJ2IRwZe5K2jIRWUJDoZgvDAKBggqhkjOPQQDAjBxMRIw
+        EAYDVQQGEwlXb3JsZFdpZGUxDzANBgNVBAgTBmdhbGF4eTEOMAwGA1UEBxMFZWFy
+        dGgxETAPBgNVBAoTCG9yZzIuY29tMREwDwYDVQQLEwhHcmVlblJuRDEUMBIGA1UE
+        AxMLY2Eub3JnMi5jb20wHhcNMjIwMjA2MTEwNzAwWhcNMzIwMjA0MTEwNzAwWjBx
+        MRIwEAYDVQQGEwlXb3JsZFdpZGUxDzANBgNVBAgTBmdhbGF4eTEOMAwGA1UEBxMF
+        ZWFydGgxETAPBgNVBAoTCG9yZzIuY29tMREwDwYDVQQLEwhHcmVlblJuRDEUMBIG
+        A1UEAxMLY2Eub3JnMi5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAATMTqqr
+        h1t/4f5jPyzzt/f91sWG5UTFn9plTz/AYPAtEz2x15yaNuILagrCF7Rir6WQMdwU
+        iJH5YXnzn4fBYnuvo20wazAOBgNVHQ8BAf8EBAMCAaYwHQYDVR0lBBYwFAYIKwYB
+        BQUHAwIGCCsGAQUFBwMBMA8GA1UdEwEB/wQFMAMBAf8wKQYDVR0OBCIEIH8xua9r
+        nn8Rg63o1POseeCDkdcfuFZ/wSdukGCAR12aMAoGCCqGSM49BAMCA0kAMEYCIQD8
+        XDkOQIbC/1uV+ojG9oe3Xu0w6jn7X0oGB8y9eoX8lgIhAK/Do0LFWXfBGKsSkMWJ
+        9Sanx1nL3YEOwb29zgo9Dcd9
         -----END CERTIFICATE-----
 
 
@@ -377,7 +377,7 @@ certificateAuthorities:
 channels:
   #
   
-  auction:
+  interairlining:
     #
     # [Optional]. Channel orderers. Details of how to connect to
     # them is specified later, under the physical "orderers:" section

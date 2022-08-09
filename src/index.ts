@@ -2,7 +2,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { InterAirliningContract } from './inter-airlining-contract';
-export { InterAirliningContract } from './inter-airlining-contract';
+import { AuctionContract } from './auction-contract';
+export { AuctionContract  } from './auction-contract';
 
-export const contracts: any[] = [ InterAirliningContract ];
+export const contracts: any[] = [ AuctionContract  ];
