@@ -142,6 +142,14 @@ export class AuctionContract extends Contract {
         return person;
     }
 
+    @Transaction(false)
+    @Returns("Person")
+    public async personLogin(ctx: Context, username: string, password: string) {
+        const personService = new PersonService(ctx);
+        const person = await personService.personLogin(username , password)
+        return person;
+    }
+
     @Transaction(true)
     public async createPerson(
         ctx: Context,
@@ -199,8 +207,9 @@ export class AuctionContract extends Contract {
         return suggestions;
     }
 
+    /*
     @Transaction(true)
-    public async createSuggestion(
+    public async createSuggestion1(
         ctx: Context,
         suggestionId: string,
         personID: string,
@@ -219,8 +228,9 @@ export class AuctionContract extends Contract {
         );
     }
 
+*/
 
-
+/*
     @Transaction(true)
     public async updateSuggestionStatus(
         ctx: Context,
@@ -230,61 +240,112 @@ export class AuctionContract extends Contract {
         const suggestionService = new SuggestionService(ctx);
         await suggestionService.updateStatus(suggestionId, newStatus);
     }
-
+*/
     @Transaction(true)
     public async deleteSuggestion(ctx: Context, suggestionId: string) {
         const suggestionService = new SuggestionService(ctx);
         await suggestionService.delete(suggestionId);
     }
 
-/*
-    // drugClaimDelivery
     @Transaction(true)
-    public async drugClaimDelivery(ctx: Context, drugId: string, productDate: string, expireDate: string) {
-        const drugService = new DrugService(ctx)
-        const drug = await drugService.get(drugId)
-        if (!drug)
-            throw new Error(`drug by drugId ${drugId} not exist`)
+    public async acceptSuggestionAutomatically(ctx: Context) {
         
-        if (Date.now() > drug.expireDate )
-            throw new Error(`drug by drugId ${drugId} expired`)    
+        const auctionService = new AuctionService(ctx);
+        const suggestionService = new SuggestionService(ctx)
+        const auctions = await auctionService.getAuctionsByStatus(AuctionStatusEnum.Available)
+        
+        auctions.forEach(auction => {
+            if(new Date().getTime() > new Date(auction.regDate).getTime() + auction.availableDays * 86400000)
+            {
+                const suggestions : Array<Suggestion> = await suggestionService.getSortedSuggestionOfAuction(auction.auctionId);
+                if(suggestions.length > 0 )
+                {
+                    const suggestionId = suggestions[0].suggestionId;
+                    await suggestionService.updateStatus(suggestionId, SuggestionStatusEnum.Accepted);
+                    await auctionService.updateStatus(auctionId, AuctionStatusEnum.Sold); 
+
+                }
+
                 
-        //
-        if (drug.status === DrugStatusEnum.Manufactured)
-            drugService.updateStatus(drugId, DrugStatusEnum.ClaimedDeliveryToDistributer)
-
-        //        
-        if (drug.status === DrugStatusEnum.ConfirmedDeliveryToDistributer)
-            drugService.updateStatus(drugId, DrugStatusEnum.ClaimedDeliveryToPharmacy)   
-            
-        //        
-        if (drug.status === DrugStatusEnum.ConfirmedDeliveryToPharmacy)
-            drugService.updateStatus(drugId, DrugStatusEnum.ClaimedDeliveryToPatient)       
-        
-
+            }
+        });
+       
     }
 
-    // drugConfirmDelivery
+
+    // acceptSuggestion
     @Transaction(true)
-    public async drugConfirmDelivery(ctx: Context , drugId : string) {
-        const drugService = new DrugService(ctx)
-        const drug = await drugService.get(drugId)
-        if (!drug)
-            throw new Error(`drug by drugId ${drugId} not exist`)
-
-        //
-        if (drug.status === DrugStatusEnum.ClaimedDeliveryToDistributer)
-            drugService.updateStatus(drugId, DrugStatusEnum.ConfirmedDeliveryToDistributer)
-
-        //
-        if (drug.status === DrugStatusEnum.ClaimedDeliveryToPharmacy)
-            drugService.updateStatus(drugId, DrugStatusEnum.ConfirmedDeliveryToPharmacy)
-
-        //
-        if (drug.status === DrugStatusEnum.ClaimedDeliveryToPatient)
-            drugService.updateStatus(drugId, DrugStatusEnum.ConfirmedDeliveryToPatient)
+    public async acceptSuggestion( 
+        ctx: Context,
+        suggestionId: string
+        ){
+        const suggestionService = new SuggestionService(ctx)
+        const suggestion = await suggestionService.get(suggestionId)
+        if (!suggestion)
+            throw new Error(`suggestion by suggestionId ${suggestionId} not exist`)
+        
+        const auctionId =  suggestion.auctionID;
+        const auctionService = new AuctionService(ctx)
+        const auction = await auctionService.get(auctionId)
+        if (!auction)
+            throw new Error(`auction by auctionId ${auctionId} not exist`)
+                
+        
+        if (auction.status !== AuctionStatusEnum.Available)
+            throw new Error(`auction by auctionId ${auctionId} is not Available`)  
+        
+        
+        if (suggestion.status !== SuggestionStatusEnum.Suggested)
+            throw new Error(`suggestion by suggestionId ${suggestionId} is not valid`)
+        else    
+            await suggestionService.updateStatus(suggestionId, SuggestionStatusEnum.Accepted);
+            await auctionService.updateStatus(auctionId, AuctionStatusEnum.Sold);    
+             
 
     }
-    */
+
+
+        // createSuggestion
+        @Transaction(true)
+        public async createSuggestion( 
+            ctx: Context,
+            suggestionId: string,
+            personID: string,
+            auctionID: string,
+            suggestedPrice: number,
+            regDate: string
+        ){
+                    
+            const auctionService = new AuctionService(ctx)
+            const auction = await auctionService.get(auctionID)
+            if (!auction)
+                throw new Error(`auction by auctionId ${auctionID} not exist`)
+                    
+            
+            if (auction.status !== AuctionStatusEnum.Available)
+                throw new Error(`auction by auctionId ${auctionID} is not Available`)  
+            
+            
+            if (suggestedPrice < auction.basePrice)
+                throw new Error(`suggested price cannot be lower than base price`)    
+                
+            if (new Date(regDate).getTime() < new Date(auction.regDate).getTime())
+                throw new Error(`suggestion registration date cannot be befor than auction registration date`)  
+            
+            if (new Date(regDate).getTime() > new Date(auction.regDate).getTime() + auction.availableDays * 86400000)
+                throw new Error(`suggestion registration date cannot be after than auction available days`)  
+
+            const suggestionService = new SuggestionService(ctx)
+            await suggestionService.create(
+                suggestionId,
+                personID,
+                auctionID,
+                suggestedPrice,
+                regDate,
+                SuggestionStatusEnum.Suggested
+            )
+    
+        }
+
 
 }

@@ -1,6 +1,7 @@
 import { Context } from "fabric-contract-api";
 import { Person } from "./person";
 
+
 export class PersonService {
     private ctx: Context;
 
@@ -18,6 +19,34 @@ export class PersonService {
         const person = JSON.parse(personBuffer.toString());
         return person;
     }
+
+    public async personLogin(username : string , password : string) {
+        const query ={
+            selector: {
+                table: 'PER',
+                username: username,
+                password: password
+            }
+         }
+        const queryString = JSON.stringify(query)
+        const result = await this.ctx.stub.getQueryResult(queryString)
+
+        const persons = [];
+        let finished = false;
+        do{
+            const res = await result.next()
+            if(!res.done){
+                const bag = JSON.parse(res.value.value.toString())
+                persons.push(bag)
+                console.log(bag)
+            }
+            else{
+                finished = true
+            }
+        }while(!finished)
+        return persons
+    }
+
 
     public async create(
         personId: string,

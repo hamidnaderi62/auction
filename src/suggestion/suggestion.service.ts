@@ -72,6 +72,35 @@ export class SuggestionService {
         return suggestions
     }
 
+
+    public async getSortedSuggestionOfAuction(auctionId : string) {
+        const query ={
+            selector: {
+                table: 'SUG',
+                auctionID: auctionId
+            },
+            sort: [{"suggestedPrice" : "desc"}]
+
+         }
+        const queryString = JSON.stringify(query)
+        const result = await this.ctx.stub.getQueryResult(queryString)
+
+        const suggestions = [];
+        let finished = false;
+        do{
+            const res = await result.next()
+            if(!res.done){
+                const bag = JSON.parse(res.value.value.toString())
+                suggestions.push(bag)
+                console.log(bag)
+            }
+            else{
+                finished = true
+            }
+        }while(!finished)
+        return suggestions
+    }
+
     public async create(
         suggestionId: string,
         personID: string,

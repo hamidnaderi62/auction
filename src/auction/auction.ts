@@ -50,7 +50,7 @@ export class Auction {
 
 
 export enum AuctionStatusEnum {
-    Available,
-    Expired,
-    Accepted,
+    Available = "Available",
+    Sold  = "Sold",
+    Expired  = "Expired",
 }

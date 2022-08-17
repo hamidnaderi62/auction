@@ -22,7 +22,7 @@ export class AuctionService {
         const query ={
             selector: {
                 table: 'AUC',
-               status: auctionStatus
+                status: auctionStatus
             }
          }
         const queryString = JSON.stringify(query)

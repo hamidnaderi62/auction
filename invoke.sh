@@ -62,18 +62,18 @@ switchOrg1
 #     --tlsRootCertFiles ${PEER0_ORG2_TLS_CA_FILE_ADDRESS} \
 #     -c '{"function":"createPerson","Args":["P_003" , "PRS_003" , "Sara Alavi", "09121111111" , "https://cdn.vuetifyjs.com/images/lists/3.jpg" , "sara" , "123"]}'
 
-peer chaincode invoke \
-    -o ${ORDERER_URL} \
-    --ordererTLSHostnameOverride ${ORDERER_HOST} \
-    --tls \
-    --cafile ${ORDERER_TLS_CA_FILE_ADDRESS} \
-    -C ${CHANNEL_NAME} \
-    -n ${CC_NAME} \
-    --peerAddresses ${PEER0_ORG1_URL} \
-    --tlsRootCertFiles ${PEER0_ORG1_TLS_CA_FILE_ADDRESS} \
-    --peerAddresses ${PEER0_ORG2_URL} \
-    --tlsRootCertFiles ${PEER0_ORG2_TLS_CA_FILE_ADDRESS} \
-    -c '{"function":"createPerson","Args":["P_3" , "P_3" , "Sara Alavi", "09121111111" , "https://cdn.vuetifyjs.com/images/lists/3.jpg" , "sara" , "123"]}'
+# peer chaincode invoke \
+#     -o ${ORDERER_URL} \
+#     --ordererTLSHostnameOverride ${ORDERER_HOST} \
+#     --tls \
+#     --cafile ${ORDERER_TLS_CA_FILE_ADDRESS} \
+#     -C ${CHANNEL_NAME} \
+#     -n ${CC_NAME} \
+#     --peerAddresses ${PEER0_ORG1_URL} \
+#     --tlsRootCertFiles ${PEER0_ORG1_TLS_CA_FILE_ADDRESS} \
+#     --peerAddresses ${PEER0_ORG2_URL} \
+#     --tlsRootCertFiles ${PEER0_ORG2_TLS_CA_FILE_ADDRESS} \
+#     -c '{"function":"createPerson","Args":["P_3" , "P_3" , "Sara Alavi", "09121111111" , "https://cdn.vuetifyjs.com/images/lists/3.jpg" , "sara" , "123"]}'
 
 # peer chaincode invoke \
 #     -o ${ORDERER_URL} \
@@ -130,7 +130,7 @@ peer chaincode invoke \
 #     --tlsRootCertFiles ${PEER0_ORG1_TLS_CA_FILE_ADDRESS} \
 #     --peerAddresses ${PEER0_ORG2_URL} \
 #     --tlsRootCertFiles ${PEER0_ORG2_TLS_CA_FILE_ADDRESS} \
-#     -c '{"function":"createAuction","Args":["A_001", "AUC_001", "Bike1", "Desc1", "Featurs1",  "1200" , "Image1" , "Image2" , "Image3" , "10" , "2022-10-05", "P_001"]}'
+#     -c '{"function":"createAuction","Args":["AUC_1", "AUC_1", "Bike1", "Desc1", "Featurs1",  "1200" , "Image1" , "Image2" , "Image3" , "10" , "2022-10-05", "P_001"]}'
 
 # peer chaincode invoke \
 #     -o ${ORDERER_URL} \
@@ -143,7 +143,7 @@ peer chaincode invoke \
 #     --tlsRootCertFiles ${PEER0_ORG1_TLS_CA_FILE_ADDRESS} \
 #     --peerAddresses ${PEER0_ORG2_URL} \
 #     --tlsRootCertFiles ${PEER0_ORG2_TLS_CA_FILE_ADDRESS} \
-#     -c '{"function":"createAuction","Args":["A_002", "AUC_002", "Bike2", "Desc1", "Featurs1",  "1200" , "Image1" , "Image2" , "Image3" , "10" , "2022-10-05", "P_001"]}'
+#     -c '{"function":"createAuction","Args":["AUC_2", "AUC_2", "Bike2", "Desc1", "Featurs1",  "1200" , "Image1" , "Image2" , "Image3" , "10" , "2022-10-05", "P_001"]}'
 
 # peer chaincode invoke \
 #     -o ${ORDERER_URL} \
@@ -250,7 +250,7 @@ peer chaincode invoke \
 #     --tlsRootCertFiles ${PEER0_ORG1_TLS_CA_FILE_ADDRESS} \
 #     --peerAddresses ${PEER0_ORG2_URL} \
 #     --tlsRootCertFiles ${PEER0_ORG2_TLS_CA_FILE_ADDRESS} \
-#     -c '{"function":"deleteAuction","Args":["A_1003"]}'
+#     -c '{"function":"deleteAuction","Args":["AUC_1660652323411"]}'
 
 
 
@@ -271,7 +271,7 @@ peer chaincode invoke \
 #     --tlsRootCertFiles ${PEER0_ORG1_TLS_CA_FILE_ADDRESS} \
 #     --peerAddresses ${PEER0_ORG2_URL} \
 #     --tlsRootCertFiles ${PEER0_ORG2_TLS_CA_FILE_ADDRESS} \
-#     -c '{"function":"createSuggestion","Args":["S_1002" , "P_003" , "A_1001" , "8400000" , "2022-08-06"]}'
+#     -c '{"function":"createSuggestion","Args":["S_1005" , "P_1" , "A_1" , "7000000" , "2022-08-06"]}'
 
 # peer chaincode invoke \
 #     -o ${ORDERER_URL} \
@@ -338,4 +338,4 @@ peer chaincode invoke \
 #     --tlsRootCertFiles ${PEER0_ORG1_TLS_CA_FILE_ADDRESS} \
 #     --peerAddresses ${PEER0_ORG2_URL} \
 #     --tlsRootCertFiles ${PEER0_ORG2_TLS_CA_FILE_ADDRESS} \
-#     -c '{"function":"deleteSuggestion","Args":["S_1002"]}'
+#     -c '{"function":"deleteSuggestion","Args":["S_1660391066252"]}'

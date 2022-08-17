@@ -28,7 +28,7 @@ export class Suggestion {
 
 
 export enum SuggestionStatusEnum {
-    Suggested,
-    Rejected,
-    Accepted,
+    Suggested = "Suggested",
+    Rejected = "Rejected",
+    Accepted = "Accepted",
 }
