@@ -72,15 +72,13 @@ export class SuggestionService {
         return suggestions
     }
 
-
-    public async getSortedSuggestionOfAuction(auctionId : string) {
+    public async getSuggestionsByAuction1(auctionId : string) {
         const query ={
             selector: {
                 table: 'SUG',
                 auctionID: auctionId
             },
             sort: [{"suggestedPrice" : "desc"}]
-
          }
         const queryString = JSON.stringify(query)
         const result = await this.ctx.stub.getQueryResult(queryString)
@@ -103,6 +101,7 @@ export class SuggestionService {
 
     public async create(
         suggestionId: string,
+        code: string,
         personID: string,
         auctionID: string,
         suggestedPrice: number,
@@ -114,6 +113,7 @@ export class SuggestionService {
         }
 
         const suggestion = new Suggestion(
+            code,
             personID,
             auctionID,
             suggestedPrice,

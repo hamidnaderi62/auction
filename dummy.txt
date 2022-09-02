@@ -1,2 +1,2 @@
 Approved chaincode definition for chaincode 'auction' on channel 'auction':
-sequence: 5, version: 1.5, init-required: false, package-id: auction_1.5:876f68ae67fb85c48ddaac60c8048c8c9a4cdeea3c639cbc1fb16d86243dfb19, endorsement plugin: escc, validation plugin: vscc
+sequence: 3, version: 1.2, init-required: false, package-id: auction_1.2:93ecbc05adc0c6d4906eff78a985f43d982ab4df49c9d1577bbcdb11c6582cd9, endorsement plugin: escc, validation plugin: vscc

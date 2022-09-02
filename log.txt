@@ -1,8 +1,5 @@
 Installed chaincodes on peer:
-Package ID: auction_1.0:0d440f7a0de5cfc12cc2ca57d4ef241350c708136fcc17e58b29ae4de32244f5, Label: auction_1.0
-Package ID: auction_1.1:66a0f6ca2bac3e8a53f34f93aa392644a684bfdc2bb08998fde00b59848cefa1, Label: auction_1.1
-Package ID: auction_1.2:fa13bb776b09b43d862dd3454f23ca2b0c4b3a1961a0580437bcbbaf63e68d3f, Label: auction_1.2
-Package ID: auction_1.3:6c232cda683c03a09815b0b9c877275b20bf3344ef59871b62d4e9404ba06047, Label: auction_1.3
-Package ID: auction_1.4:b261eb9f10a3ee7cc6947aaae767fc9f29448d0d59840584f3886a246d277210, Label: auction_1.4
-Package ID: auction_1.5:876f68ae67fb85c48ddaac60c8048c8c9a4cdeea3c639cbc1fb16d86243dfb19, Label: auction_1.5
-Package ID: auction_1.6:c9aa57ae733a8909a9a9d532c7ae68b145f5ff50705e16ad62699c63f00f7fcd, Label: auction_1.6
+Package ID: auction_1.0:541ca58c93f1fd9bf3e4a7af941d1c22564b014508b98366921f1aa2ff2aa936, Label: auction_1.0
+Package ID: auction_1.1:605e043a9de7597d7e0debaa21a536f9188d9419688d3d75c5bd273493a1adc4, Label: auction_1.1
+Package ID: auction_1.2:93ecbc05adc0c6d4906eff78a985f43d982ab4df49c9d1577bbcdb11c6582cd9, Label: auction_1.2
+Package ID: auction_1.3:ac74b20902f4ee2d6a767b51f12caf1dd79119498b464b60c54752b919dbeb4b, Label: auction_1.3

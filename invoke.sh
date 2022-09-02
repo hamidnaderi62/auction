@@ -86,7 +86,7 @@ switchOrg1
 #     --tlsRootCertFiles ${PEER0_ORG1_TLS_CA_FILE_ADDRESS} \
 #     --peerAddresses ${PEER0_ORG2_URL} \
 #     --tlsRootCertFiles ${PEER0_ORG2_TLS_CA_FILE_ADDRESS} \
-#     -c '{"function":"getPerson","Args":["P_001"]}'
+#     -c '{"function":"getPerson","Args":["P_2"]}'
 
 # peer chaincode invoke \
 #   -o ${ORDERER_URL} \
@@ -182,7 +182,7 @@ switchOrg1
 #     --tlsRootCertFiles ${PEER0_ORG1_TLS_CA_FILE_ADDRESS} \
 #     --peerAddresses ${PEER0_ORG2_URL} \
 #     --tlsRootCertFiles ${PEER0_ORG2_TLS_CA_FILE_ADDRESS} \
-#     -c '{"function":"getAuction","Args":["A_001"]}'
+#     -c '{"function":"getAuction","Args":["AUC_1660652612169"]}'
 
 # peer chaincode invoke \
 #     --tls \
@@ -195,7 +195,7 @@ switchOrg1
 #     --tlsRootCertFiles ${PEER0_ORG2_TLS_CA_FILE_ADDRESS} \
 #     -C ${CHANNEL_NAME} \
 #     -n ${CC_NAME} \
-#     -c '{"function":"getAuctionsByStatus","Args":["-1"]}'
+#     -c '{"function":"getAuctionsByStatus","Args":["Available"]}'
 
 
 # peer chaincode invoke \
@@ -284,7 +284,7 @@ switchOrg1
 #     --tlsRootCertFiles ${PEER0_ORG1_TLS_CA_FILE_ADDRESS} \
 #     --peerAddresses ${PEER0_ORG2_URL} \
 #     --tlsRootCertFiles ${PEER0_ORG2_TLS_CA_FILE_ADDRESS} \
-#     -c '{"function":"getSuggestion","Args":["S_1001"]}'
+#     -c '{"function":"getSuggestion","Args":["SUG_1660652770191"]}'
 
 # peer chaincode invoke \
 #     -o ${ORDERER_URL} \
@@ -297,7 +297,7 @@ switchOrg1
 #     --tlsRootCertFiles ${PEER0_ORG1_TLS_CA_FILE_ADDRESS} \
 #     --peerAddresses ${PEER0_ORG2_URL} \
 #     --tlsRootCertFiles ${PEER0_ORG2_TLS_CA_FILE_ADDRESS} \
-#     -c '{"function":"getSuggestionsByPerson","Args":["P_002"]}'
+#     -c '{"function":"getSuggestionsByPerson","Args":["P_1"]}'
 
 # peer chaincode invoke \
 #     -o ${ORDERER_URL} \
@@ -310,7 +310,7 @@ switchOrg1
 #     --tlsRootCertFiles ${PEER0_ORG1_TLS_CA_FILE_ADDRESS} \
 #     --peerAddresses ${PEER0_ORG2_URL} \
 #     --tlsRootCertFiles ${PEER0_ORG2_TLS_CA_FILE_ADDRESS} \
-#     -c '{"function":"getSuggestionsByAuction","Args":["A_1001"]}'
+#     -c '{"function":"getSuggestionsByAuction","Args":["AUC_1660652612169"]}'
 
 
 # peer chaincode invoke \
@@ -338,4 +338,17 @@ switchOrg1
 #     --tlsRootCertFiles ${PEER0_ORG1_TLS_CA_FILE_ADDRESS} \
 #     --peerAddresses ${PEER0_ORG2_URL} \
 #     --tlsRootCertFiles ${PEER0_ORG2_TLS_CA_FILE_ADDRESS} \
-#     -c '{"function":"deleteSuggestion","Args":["S_1660391066252"]}'
+#     -c '{"function":"deleteSuggestion","Args":["SUG_1660652770191"]}'
+
+peer chaincode invoke \
+    -o ${ORDERER_URL} \
+    --ordererTLSHostnameOverride ${ORDERER_HOST} \
+    --tls \
+    --cafile ${ORDERER_TLS_CA_FILE_ADDRESS} \
+    -C ${CHANNEL_NAME} \
+    -n ${CC_NAME} \
+    --peerAddresses ${PEER0_ORG1_URL} \
+    --tlsRootCertFiles ${PEER0_ORG1_TLS_CA_FILE_ADDRESS} \
+    --peerAddresses ${PEER0_ORG2_URL} \
+    --tlsRootCertFiles ${PEER0_ORG2_TLS_CA_FILE_ADDRESS} \
+    -c '{"function":"acceptSuggestionAutomatically","Args":[]}'

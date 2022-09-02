@@ -78,16 +78,6 @@ export class AuctionContract extends Contract {
         return auction;
     }
 
-    /*
-    @Transaction(false)
-    @Returns("Baggage")
-    public async getBaggageByQueryWithPagination(ctx: Context, baggageValue: string , pageSize:string , bookmark:string) {
-        const baggageService = new BaggageService(ctx);
-        const baggage = await baggageService.getBaggageByQueryWithPagination(+baggageValue , +pageSize , bookmark)
-        return baggage;
-    }
-
-    */
 
 
 
@@ -207,40 +197,7 @@ export class AuctionContract extends Contract {
         return suggestions;
     }
 
-    /*
-    @Transaction(true)
-    public async createSuggestion1(
-        ctx: Context,
-        suggestionId: string,
-        personID: string,
-        auctionID: string,
-        suggestedPrice: number,
-        regDate: string
-    ) {
-        const suggestionService = new SuggestionService(ctx);
-        await suggestionService.create(
-            suggestionId,
-            personID,
-            auctionID,
-            suggestedPrice,
-            regDate,
-            SuggestionStatusEnum.Suggested
-        );
-    }
 
-*/
-
-/*
-    @Transaction(true)
-    public async updateSuggestionStatus(
-        ctx: Context,
-        suggestionId: string,
-        newStatus: SuggestionStatusEnum
-    ) {
-        const suggestionService = new SuggestionService(ctx);
-        await suggestionService.updateStatus(suggestionId, newStatus);
-    }
-*/
     @Transaction(true)
     public async deleteSuggestion(ctx: Context, suggestionId: string) {
         const suggestionService = new SuggestionService(ctx);
@@ -253,17 +210,41 @@ export class AuctionContract extends Contract {
         const auctionService = new AuctionService(ctx);
         const suggestionService = new SuggestionService(ctx)
         const auctions = await auctionService.getAuctionsByStatus(AuctionStatusEnum.Available)
-        
-        auctions.forEach(auction => {
-            if(new Date().getTime() > new Date(auction.regDate).getTime() + auction.availableDays * 86400000)
+        console.log(auctions.length)
+        auctions.forEach(async auction => {
+            let current_time = new Date().getTime();
+            let auction_time = new Date(auction.regDate).getTime() + auction.availableDays * 86400000;
+            console.log(current_time)
+            console.log(auction_time)
+            if(current_time >= auction_time)
             {
-                const suggestions : Array<Suggestion> = await suggestionService.getSortedSuggestionOfAuction(auction.auctionId);
+                const suggestions : Array<Suggestion> = await suggestionService.getSuggestionsByAuction(auction.code);                
+                console.log(suggestions.length)
                 if(suggestions.length > 0 )
                 {
-                    const suggestionId = suggestions[0].suggestionId;
-                    await suggestionService.updateStatus(suggestionId, SuggestionStatusEnum.Accepted);
-                    await auctionService.updateStatus(auctionId, AuctionStatusEnum.Sold); 
+                    let maxSuggestedPrice = 0 ;
+                    let maxSuggestionCode = '';
 
+                    suggestions.forEach(suggestion => {
+                        if(suggestion.suggestedPrice > maxSuggestedPrice)
+                            maxSuggestedPrice = suggestion.suggestedPrice;
+                            maxSuggestionCode = suggestion.code;
+                    });
+                    console.log(maxSuggestedPrice)
+                    console.log(maxSuggestionCode)
+                    try {
+                        await suggestionService.updateStatus(maxSuggestionCode, SuggestionStatusEnum.Accepted);
+                        await auctionService.updateStatus(auction.code, AuctionStatusEnum.Sold); 
+                    }
+                    catch(err) {
+
+                    }
+                    
+                }
+
+                else
+                {
+                    await auctionService.updateStatus(auction.code, AuctionStatusEnum.Expired);    
                 }
 
                 
@@ -282,25 +263,29 @@ export class AuctionContract extends Contract {
         const suggestionService = new SuggestionService(ctx)
         const suggestion = await suggestionService.get(suggestionId)
         if (!suggestion)
-            throw new Error(`suggestion by suggestionId ${suggestionId} not exist`)
+            throw new Error(`@@@ پیشنهاد وجود ندارد $$$`)
+            //throw new Error(`suggestion by suggestionId ${suggestionId} not exist`)
         
         const auctionId =  suggestion.auctionID;
         const auctionService = new AuctionService(ctx)
         const auction = await auctionService.get(auctionId)
         if (!auction)
-            throw new Error(`auction by auctionId ${auctionId} not exist`)
+            throw new Error(`@@@ درخواست فروش با این مشخصات وجود ندارد $$$`)
+            //throw new Error(`auction by auctionId ${auctionId} not exist`)
                 
         
         if (auction.status !== AuctionStatusEnum.Available)
-            throw new Error(`auction by auctionId ${auctionId} is not Available`)  
+            throw new Error(`@@@ درخواست فروشی با این مشخصات در دسترس  نمی باشد $$$`)
+            //throw new Error(`auction by auctionId ${auctionId} is not Available`)  
         
         
         if (suggestion.status !== SuggestionStatusEnum.Suggested)
-            throw new Error(`suggestion by suggestionId ${suggestionId} is not valid`)
-        else    
-            await suggestionService.updateStatus(suggestionId, SuggestionStatusEnum.Accepted);
-            await auctionService.updateStatus(auctionId, AuctionStatusEnum.Sold);    
-             
+            throw new Error(`@@@ پیشنهاد معتبر نمی باشد $$$`)
+            //throw new Error(`suggestion by suggestionId ${suggestionId} is not valid`)
+           
+        await suggestionService.updateStatus(suggestionId, SuggestionStatusEnum.Accepted);
+        await auctionService.updateStatus(auctionId, AuctionStatusEnum.Sold);    
+        //throw new Error(`@@@ پیشنهاد منتخب ثبت شد $$$`) 
 
     }
 
@@ -310,6 +295,7 @@ export class AuctionContract extends Contract {
         public async createSuggestion( 
             ctx: Context,
             suggestionId: string,
+            code: string,
             personID: string,
             auctionID: string,
             suggestedPrice: number,
@@ -322,28 +308,39 @@ export class AuctionContract extends Contract {
                 throw new Error(`auction by auctionId ${auctionID} not exist`)
                     
             
+            if (auction.personID === personID)
+                throw new Error(`@@@ فروشنده امکان ثبت پیشنهاد برای درخواست خود ندارد $$$`) //
+                //throw new Error(`@@@ auction owner can not register suggestion for that auction $$$`) // 
+                
             if (auction.status !== AuctionStatusEnum.Available)
-                throw new Error(`auction by auctionId ${auctionID} is not Available`)  
+                throw new Error(`@@@ درخواست فروشی با این مشخصات در دسترس  نمی باشد $$$`)
+                //throw new Error(`auction by auctionId ${auctionID} is not Available`)    
             
             
             if (suggestedPrice < auction.basePrice)
-                throw new Error(`suggested price cannot be lower than base price`)    
+                throw new Error(`@@@ قیمت پیشنهادی نمی تواند کمتر از قیمت پایه باشد $$$`)
+                //throw new Error(`suggested price cannot be lower than base price`)    
                 
             if (new Date(regDate).getTime() < new Date(auction.regDate).getTime())
-                throw new Error(`suggestion registration date cannot be befor than auction registration date`)  
+                throw new Error(`@@@ تاریخ ثبت پیشنهاد نمی تواند قبل از تاریخ ثبت درخواست فروش باشد $$$`)
+                //throw new Error(`suggestion registration date cannot be befor than auction registration date`)  
             
             if (new Date(regDate).getTime() > new Date(auction.regDate).getTime() + auction.availableDays * 86400000)
-                throw new Error(`suggestion registration date cannot be after than auction available days`)  
+                throw new Error(`@@@ تاریخ ثبت پیشنهاد نمی تواند پس از زمان انقضای درخواست باشد $$$`)
+                //throw new Error(`suggestion registration date cannot be after than auction available days`)  
 
             const suggestionService = new SuggestionService(ctx)
             await suggestionService.create(
                 suggestionId,
+                code,
                 personID,
                 auctionID,
                 suggestedPrice,
                 regDate,
                 SuggestionStatusEnum.Suggested
             )
+            //throw new Error(`@@@ پیشنهاد ثبت شد $$$`)
+            //throw new Error(`your new suggestion register successfully`) 
     
         }
 

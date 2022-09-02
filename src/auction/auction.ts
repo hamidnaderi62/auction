@@ -1,4 +1,5 @@
 export class Auction {
+    public auctionId: string
     public code: string
     public title: string
     public desc: string

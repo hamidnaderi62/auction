@@ -1,4 +1,5 @@
 export class Suggestion {
+    public code: string
     public personID: string
     public auctionID: string
     public suggestedPrice: number
@@ -8,6 +9,7 @@ export class Suggestion {
 
 
     constructor(
+        code: string, 
         personID: string, 
         auctionID: string, 
         suggestedPrice: number, 
@@ -15,6 +17,7 @@ export class Suggestion {
         status: SuggestionStatusEnum,
         table: string,
         ) {
+            this.code = code
             this.personID = personID
             this.auctionID = auctionID
             this.suggestedPrice = suggestedPrice

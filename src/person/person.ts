@@ -1,4 +1,5 @@
 export class Person {
+    public personId: string
     public code: string
     public name: string
     public tel: string
