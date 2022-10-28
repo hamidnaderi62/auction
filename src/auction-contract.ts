@@ -263,24 +263,28 @@ export class AuctionContract extends Contract {
         const suggestionService = new SuggestionService(ctx)
         const suggestion = await suggestionService.get(suggestionId)
         if (!suggestion)
-            throw new Error(`@@@ پیشنهاد وجود ندارد $$$`)
+            throw new Error(`@@@1000$$$`)
+            //throw new Error(`@@@ پیشنهاد وجود ندارد $$$`)
             //throw new Error(`suggestion by suggestionId ${suggestionId} not exist`)
         
         const auctionId =  suggestion.auctionID;
         const auctionService = new AuctionService(ctx)
         const auction = await auctionService.get(auctionId)
         if (!auction)
-            throw new Error(`@@@ درخواست فروش با این مشخصات وجود ندارد $$$`)
+            throw new Error(`@@@1001$$$`)
+            //throw new Error(`@@@ درخواست فروش با این مشخصات وجود ندارد $$$`)
             //throw new Error(`auction by auctionId ${auctionId} not exist`)
                 
         
         if (auction.status !== AuctionStatusEnum.Available)
-            throw new Error(`@@@ درخواست فروشی با این مشخصات در دسترس  نمی باشد $$$`)
+            throw new Error(`@@@1002$$$`)
+            //throw new Error(`@@@ درخواست فروشی با این مشخصات در دسترس  نمی باشد $$$`)
             //throw new Error(`auction by auctionId ${auctionId} is not Available`)  
         
         
         if (suggestion.status !== SuggestionStatusEnum.Suggested)
-            throw new Error(`@@@ پیشنهاد معتبر نمی باشد $$$`)
+            throw new Error(`@@@1003$$$`)
+            //throw new Error(`@@@ پیشنهاد معتبر نمی باشد $$$`)
             //throw new Error(`suggestion by suggestionId ${suggestionId} is not valid`)
            
         await suggestionService.updateStatus(suggestionId, SuggestionStatusEnum.Accepted);
@@ -309,24 +313,29 @@ export class AuctionContract extends Contract {
                     
             
             if (auction.personID === personID)
-                throw new Error(`@@@ فروشنده امکان ثبت پیشنهاد برای درخواست خود ندارد $$$`) //
-                //throw new Error(`@@@ auction owner can not register suggestion for that auction $$$`) // 
+                throw new Error(`@@@1004$$$`) 
+                //throw new Error(`@@@ فروشنده امکان ثبت پیشنهاد برای درخواست خود ندارد $$$`) 
+                //throw new Error(`@@@ auction owner can not register suggestion for that auction $$$`) 
                 
             if (auction.status !== AuctionStatusEnum.Available)
-                throw new Error(`@@@ درخواست فروشی با این مشخصات در دسترس  نمی باشد $$$`)
+                throw new Error(`@@@1005$$$`)
+                //throw new Error(`@@@ درخواست فروشی با این مشخصات در دسترس  نمی باشد $$$`)
                 //throw new Error(`auction by auctionId ${auctionID} is not Available`)    
             
             
             if (suggestedPrice < auction.basePrice)
-                throw new Error(`@@@ قیمت پیشنهادی نمی تواند کمتر از قیمت پایه باشد $$$`)
+                throw new Error(`@@@1006$$$`)
+                //throw new Error(`@@@ قیمت پیشنهادی نمی تواند کمتر از قیمت پایه باشد $$$`)
                 //throw new Error(`suggested price cannot be lower than base price`)    
                 
             if (new Date(regDate).getTime() < new Date(auction.regDate).getTime())
-                throw new Error(`@@@ تاریخ ثبت پیشنهاد نمی تواند قبل از تاریخ ثبت درخواست فروش باشد $$$`)
+                throw new Error(`@@@1007$$$`)
+                //throw new Error(`@@@ تاریخ ثبت پیشنهاد نمی تواند قبل از تاریخ ثبت درخواست فروش باشد $$$`)
                 //throw new Error(`suggestion registration date cannot be befor than auction registration date`)  
             
             if (new Date(regDate).getTime() > new Date(auction.regDate).getTime() + auction.availableDays * 86400000)
-                throw new Error(`@@@ تاریخ ثبت پیشنهاد نمی تواند پس از زمان انقضای درخواست باشد $$$`)
+                throw new Error(`@@@1008$$$`)
+                //throw new Error(`@@@ تاریخ ثبت پیشنهاد نمی تواند پس از زمان انقضای درخواست باشد $$$`)
                 //throw new Error(`suggestion registration date cannot be after than auction available days`)  
 
             const suggestionService = new SuggestionService(ctx)
